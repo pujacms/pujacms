@@ -1,0 +1,90 @@
+.header{background: darkred;}
+.header, .header a{color: #FFFFFF;}
+.header{padding: 20px;}
+.header a{text-decoration: none;}
+.header .userinfo {float: right;width: 200px;}
+
+
+body.panel-footer{overflow: initial;border: 0;}
+.wrapper-body { margin: 0;}
+
+
+.hidden { display: none;}
+.red {color: red;}
+.green { color: green;}
+
+/** Table */
+.table-form td {padding: 5px; vertical-align: top;}
+.table-form td.first { width: 250px; }
+.table-form p { margin: 5px 0px;}
+
+/** Entity Update Form */
+
+
+
+/**EasyUI Custom */
+.easyui-icon {display: inline-block;width: 16px;height: 16px;}
+.easyui-link{color: inherit; text-decoration: none;}
+.easyui-link.menu-active{}
+.easyui-select.textbox {height: 25px;}
+.easyui-input.textbox{padding: 5px; width: 60%;}
+.easyui-btn.l-btn{ padding: 5px 10px;}
+.easyui-datetimebox{width: auto;}
+.easyui-progressbar{width:50%;border-top:0;border-right: 0;border-left: 0;border-radius: 0;padding:6px 0px;}
+.easyui-progressbar .bar{position: absolute;bottom:0px;height: 2px;background: green; width: 50%;}
+/*.easyui-combobox {width: 40%;}*/
+
+
+/** Configure CmsMenu */
+.configure_cmsmenu { min-height:  20px;}
+.configure_cmsmenu_item {padding: 5px; border-bottom: dotted 1px;}
+.configure_cmsmenu_item.over{background: red; }
+
+.mmt-upload-file-image{ display: block; width: 50px; height: 50px; border: 1px solid; overflow: hidden;}
+.mmt-upload-file-image .copy{margin: 10px 8px;display: inline-block;}
+
+/** Configure Module
+.field-advance-config-block {border-left: 20px solid gray; padding-left: 2px;}
+.configure_cmsmenu { min-height:  20px;}
+.table_addfield_msg { margin-top: 5px;}*/
+/** New Icon */
+.custom-tree-file span.custom-icon,.custom-tree-folder span.custom-icon{
+    background: url(../../media/libs/jinnguyen/easyui/themes/icons/edit_add.png) no-repeat;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    z-index: 10;
+    top: 0px;
+    left: 12px;
+    background-size: 10px;
+}
+
+
+.puja-ajaxupload-progress .delete-btn{
+    display: inline-block;
+    position: absolute;
+    left: 60px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.puja-cms-overlay {
+    display:none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10001;
+    left: 0px;
+    top: 0px;
+    background: #000 url(../images/loader.gif) 50% 50% no-repeat;
+    opacity: 0.5;
+}
+
+.datagrid_search_box{
+    width: 252px;
+    position: absolute;
+    top: 2px;
+    left: 550px;
+    z-index: 1;
+}

@@ -1,0 +1,1 @@
+<input type="password" class="textbox easyui-input" name="{{ field.InputFieldName }}" value="{{ field.value }}" />

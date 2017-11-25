@@ -1,0 +1,6 @@
+body.panel-footer{overflow: initial;border: 0;}
+form{width: 250px; margin: 100px auto;}
+.easyui-panel{padding: 10px;}
+.easyui-panel div{margin-bottom: 5px;}
+.btn{padding:5px 10px;}
+.easyui-textbox,.easyui-passwordbox{width: 220px;}

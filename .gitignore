@@ -1,0 +1,4 @@
+.idea/*
+*_local.php
+cms/media/libs/*
+vendor/*

@@ -1,0 +1,26 @@
+{
+  "name": "pujacms/pujacms",
+  "description": "Puja is a lightweight, flexible and easy PHP  template engine. Inspired in django, Puja also support validate template syntax!",
+  "type": "library",
+  "license": "The MIT License (MIT)",
+  "keywords": ["puja", "template engine", "php template engine", "django style", "template engine validate syntax"],
+  "authors": [
+      {
+        "name": "Jin Nguyen",
+        "email": "w2ajax@gmail.com"
+      }
+  ],
+  "minimum-stability": "stable",
+  "config": {
+    "vendor-dir": "media/libs"
+  },
+  "require": {
+      "components/jquery": "^3",
+      "pujacms/mmt": "dev-master",
+      "tinymce/tinymce": "^4",
+      "jinnguyen/easyui": "*",
+      "jinnguyen/divbox": "*",
+      "pujacms/ajaxupload" : "dev-master"
+  },
+  "autoload": {}
+}

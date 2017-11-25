@@ -1,0 +1,2 @@
+<input type="text" class="easyui-datetimebox" name="{{ field.InputFieldName }}" value="{{ field.value }}"
+       data-options="formatter:Puja.Entity.Update.FieldType.DateTime.formatter,parser:Puja.Entity.Update.FieldType.DateTime.parser" />

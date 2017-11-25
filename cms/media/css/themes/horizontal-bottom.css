@@ -1,0 +1,4 @@
+.navigation,.main-view{margin-left: 20px; margin-right: 20px;}
+.navigation.panel-header{padding:0;position: fixed;bottom: 2px;left:0px;right: 0px;z-index: 1000;}
+.main-view{margin-top: 5px;}
+.navsub .easyui-link{display: block;width: 200px;padding:2px 5px 2px 30px;}

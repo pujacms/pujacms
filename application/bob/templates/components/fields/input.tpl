@@ -1,0 +1,1 @@
+<input class="easyui-textbox" name="{{ field.name }}" value="{{ field.value }}" />

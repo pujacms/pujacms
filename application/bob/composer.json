@@ -1,0 +1,28 @@
+{
+  "name": "pujacms/pujacms",
+  "description": "PujaCms is a lightweight, flexible and easy PHP  template engine. Inspired in django, Puja also support validate template syntax!",
+  "type": "library",
+  "license": "The MIT License (MIT)",
+  "keywords": ["puja", "template engine", "php template engine", "django style", "template engine validate syntax"],
+  "authors": [
+      {
+        "name": "Jin Nguyen",
+        "email": "w2ajax@gmail.com"
+      }
+  ],
+  "minimum-stability": "stable",
+  "config": {
+    "vendor-dir": "../../vendor/bob",
+    "autoloader-suffix": "Bob"
+  },
+  "require": {
+      "jinnguyen/puja-image": "dev-master",
+      "jinnguyen/puja-upload": "dev-master",
+      "jinnguyen/puja-form": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Puja\\Bob\\": "src/"
+    }
+  }
+}

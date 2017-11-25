@@ -1,0 +1,177 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "17e394e63cf311909d48e65a9ebb33c1",
+    "packages": [
+        {
+            "name": "jinnguyen/puja-form",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-form.git",
+                "reference": "cc4b97836bd5e5be29384451b1126ebb01978f13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-form/zipball/cc4b97836bd5e5be29384451b1126ebb01978f13",
+                "reference": "cc4b97836bd5e5be29384451b1126ebb01978f13",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Form\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "The MIT License (MIT)"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja Form",
+            "keywords": [
+                "form",
+                "puja"
+            ],
+            "time": "2017-11-15 01:53:20"
+        },
+        {
+            "name": "jinnguyen/puja-image",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-image.git",
+                "reference": "55442b465bc81abbc668af4f21dfecd614216c95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-image/zipball/55442b465bc81abbc668af4f21dfecd614216c95",
+                "reference": "55442b465bc81abbc668af4f21dfecd614216c95",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Image\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Image is library for handle image actions, like: crop, resize....",
+            "keywords": [
+                "image",
+                "puja",
+                "resize"
+            ],
+            "time": "2017-11-14 13:38:09"
+        },
+        {
+            "name": "jinnguyen/puja-stdlib",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-stdlib.git",
+                "reference": "e9477c6ab93b212c2d2d873818d966ff4e65321e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-stdlib/zipball/e9477c6ab93b212c2d2d873818d966ff4e65321e",
+                "reference": "e9477c6ab93b212c2d2d873818d966ff4e65321e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Stdlib\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Stdlib provides basic functions such as File,Folder and more ",
+            "keywords": [
+                "Standard lib",
+                "file system",
+                "filesystem",
+                "folder",
+                "puja"
+            ],
+            "time": "2017-02-21 08:58:14"
+        },
+        {
+            "name": "jinnguyen/puja-upload",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-upload.git",
+                "reference": "bb94b005953767fbd7fbcce9daadd61d1aa5b90b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-upload/zipball/bb94b005953767fbd7fbcce9daadd61d1aa5b90b",
+                "reference": "bb94b005953767fbd7fbcce9daadd61d1aa5b90b",
+                "shasum": ""
+            },
+            "require": {
+                "jinnguyen/puja-stdlib": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Upload\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Upload is a flexible component for upload files.",
+            "keywords": [
+                "puja",
+                "upload"
+            ],
+            "time": "2017-11-13 17:21:01"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "jinnguyen/puja-image": 20,
+        "jinnguyen/puja-upload": 20,
+        "jinnguyen/puja-form": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

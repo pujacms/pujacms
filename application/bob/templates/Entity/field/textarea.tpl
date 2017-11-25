@@ -1,0 +1,1 @@
+<textarea class="textbox easyui-input" name="{{ field.InputFieldName }}">{{ field.value }}</textarea>

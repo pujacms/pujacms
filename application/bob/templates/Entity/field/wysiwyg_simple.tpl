@@ -1,0 +1,1 @@
+<textarea class="wysiwyg_simple" name="{{ field.InputFieldName }}">{{ field.value }}</textarea>
