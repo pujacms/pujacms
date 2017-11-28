@@ -1,6 +1,8 @@
 .idea/*
+.DS_Store
 *_local.php
 cms/media/libs/*
+media/libs/*
 vendor/*
 data/*
 !data/.gitkeep

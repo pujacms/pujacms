@@ -40,6 +40,25 @@
         <span class="custom-icon"></span>
     </a>
     {% endfor %}
+
+    {% if datagrid.searchbox.enabled %}
+
+        <div class="datagrid_search_box">
+            <input class="easyui-searchbox" style="width:300px" data-options="
+        searcher:{{ datagrid.JsGrid }}.toolbars.search,
+        prompt:'Please enter keywords, press ENTER',
+        menu:'#datagrid_search_box_menu',
+        icons: [{
+            iconCls:'icon-clear',
+            handler: {{ datagrid.JsGrid }}.toolbars.clearSearch
+        }]
+        " />
+            <div id="datagrid_search_box_menu" style="width:120px">
+                <div data-options="name:'index'">All</div>
+            </div>
+        </div>
+
+    {% endif %}
 </div>
 {% endif %}
 <div id="datagrid_error_message" class="error_message"></div>

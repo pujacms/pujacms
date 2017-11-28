@@ -186,8 +186,8 @@ CREATE TABLE `puja_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `puja_category_ln` (
-  `fk_category` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'system',
-  `fk_configure_language` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT 'system',
+  `fk_category` int(10) unsigned NOT NULL COMMENT 'system',
+  `fk_configure_language` INT(10) NOT NULL COMMENT 'system',
   `name` VARCHAR(255) NOT NULL,
   `description` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`fk_category`,`fk_configure_language`)
@@ -261,6 +261,20 @@ CREATE TABLE `puja_configure_pagemeta` (
   PRIMARY KEY (`id_configure_pagemeta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+CREATE TABLE `puja_configure_webtranslate` (
+  `id_configure_webtranslate` int(5) NOT NULL AUTO_INCREMENT,
+  `translate_key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
+  PRIMARY KEY (`id_configure_webtranslate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `puja_configure_webtranslate_ln` (
+  `fk_configure_webtranslate` int(10) unsigned NOT NULL COMMENT 'system',
+  `fk_configure_language` int(10) unsigned NOT NULL COMMENT 'system',
+  `translate_value` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`fk_configure_webtranslate`, `fk_configure_language`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --- Alice table (maybe use sqlite for Alice)
 -- puja_alice_content_search ( store some basic content field, it just for search)

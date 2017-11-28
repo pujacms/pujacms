@@ -117,16 +117,40 @@ Puja.Entity.Grid = {
             },
             move: function (obj) {
                 $(Puja.Entity.Grid.WindowId).window({
-                    title: 'Update parent category',
-                    content: '<form method="post"><ul id="Easyui-Tree"></ul><div><input type="submit" class="l-btn easyui-btn"  value="Save change"><input type="button" class="l-btn easyui-btn" value="Cancel"></div></form>'
+                    title: 'Update category',
+                    content: '<form method="post" action="' + $(obj).attr('href') + '" onsubmit="Puja.Entity.Grid.actions.executeActions.moveSubmit(this);return false;"><ul id="Easyui-Tree"></ul><div style="position: absolute;bottom: 10px;"><input type="hidden" name="savechange" value="1" /><input type="submit" class="l-btn easyui-btn"  value="Save change"><input onclick="Puja.Entity.Grid.actions.executeActions.moveClose();" type="button" class="l-btn easyui-btn" value="Cancel"></div></form>'
                 }).window('open');
                 $('#Easyui-Tree').tree({
                     url: $(obj).attr('href'),
                     formatter: function (node) {
-                        return '<input id="parentcategory_' + node.pkid + '" type="radio" name="parentcategory" value="' + node.pkid + '" /><label for="parentcategory_' + node.pkid + '"> ' + node.text + '</label>';
+                        return '<input id="parentcategory_' + node.id + '" type="radio" name="catid" value="' + node.id + '" ' + (node.current ? 'checked' : '')+ ' /><label for="parentcategory_' + node.id + '"> ' + node.text + '</label>';
                     }
                 });
                 return false;
+            },
+            moveSubmit: function (obj) {
+                $(Puja.Entity.Grid.WindowId).window('close');
+                $.messager.progress({title:'Waiting...'});
+                $.post($(obj).attr('action'), $(obj).serialize(), function (resp) {
+                    $.messager.progress('close');
+
+                    if (resp.status) {
+                        $(Puja.Entity.Grid.ElementId).datagrid('reload');
+                        $.messager.show({
+                            title: 'Success',
+                            msg: 'Update successful!'
+                        });
+                    } else {
+                        $.messager.show({
+                            title: 'Error',
+                            msg: 'Update failed!'
+                        });
+                    }
+                }, 'json');
+                return false;
+            },
+            moveClose: function () {
+                $(Puja.Entity.Grid.WindowId).window('close');
             }
         }
 

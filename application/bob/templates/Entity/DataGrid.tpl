@@ -15,30 +15,13 @@
     {% endfor %}
 </div>
 {% endif %}
-{% if datagrid.searchbox.enabled %}
-<div style="position: relative;">
-    <div class="datagrid_search_box">
-        <input class="easyui-searchbox" style="width:300px" data-options="
-        searcher:{{ datagrid.JsGrid }}.toolbars.search,
-        prompt:'Please enter keywords, press ENTER',
-        menu:'#datagrid_search_box_menu',
-        icons: [{
-            iconCls:'icon-clear',
-            handler: {{ datagrid.JsGrid }}.toolbars.clearSearch
-        }]
-        " />
-        <div id="datagrid_search_box_menu" style="width:120px">
-            <div data-options="name:'index'">All</div>
-        </div>
-    </div>
-</div>
-{% endif %}
+
 <form method="post" id="GridContentForm">
 {% include components/easyui/datagrid.tpl %}
 </form>
 <style>
     .tree-node {
-        margin-left: 10px;;
+        margin-left: 10px;;}
 </style>
 
 <div id="Easyui-Window" class="easyui-window" style="width:350px;height:400px;padding:10px;" data-options="modal:true,closed:true,iconCls:'icon-save'"></div>

@@ -5,7 +5,7 @@ class Auth
     public function login($userName, $password)
     {
         $userModel = new \Puja\Bob\Model\User();
-        $user = $userModel->getByUserNameAndPassword($userName, md5($password));
+        $user = $userModel->getByUserNameAndPassword($userName, $password);
         if (empty($user)) {
             return false;
         }

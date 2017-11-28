@@ -15,5 +15,6 @@
 
 <script type="text/javascript" src="{{ cfg.static_server }}/libs/components/jquery/jquery.js"></script>
 <script type="text/javascript" src="{{ cfg.static_server }}/libs/jinnguyen/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="{{ cfg.static_server }}/js/Puja/Auth/Login.js"></script>
 </body>
 </html>

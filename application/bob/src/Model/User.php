@@ -20,7 +20,12 @@ class User extends AbstractLayer\ModelAbstract
 
     public function getByUserNameAndPassword($username, $password)
     {
-        return $this->table->findOneByCriteria(array('username' => $username, 'password' => $password));
+        return $this->table->findOneByCriteria(array('username' => $username, 'password' => self::getGeneratedPassword($password)));
+    }
+
+    public function updatePasswordByPkId($pkId, $password)
+    {
+        return $this->table->updateByPkId(array('password' => self::getGeneratedPassword($password)), $pkId);
     }
 
     public function isGuest()
@@ -51,5 +56,10 @@ class User extends AbstractLayer\ModelAbstract
     public function destroy()
     {
         $this->session->destroy();
+    }
+
+    public static function getGeneratedPassword($password)
+    {
+        return md5($password);
     }
 }

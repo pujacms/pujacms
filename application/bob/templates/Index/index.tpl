@@ -1,2 +1,2 @@
 {% extends master.tpl %}
-{% block body %}Index Tpl{% endblock %}
+{% block body %}{% endblock %}

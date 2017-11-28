@@ -114,6 +114,7 @@ class CmsMenu extends \Puja\Bob\Model\AbstractLayer\ModelAbstract
                     'configure_pagemeta' => array('name' => 'Page Meta data', 'url' => './?module=configure&ctrl=pagemeta', 'navigationId' => 'configure_pagemeta'),
                     'acl_index' => array('name' => 'ACL', 'url' => './?module=acl', 'navigationId' => 'acl_index'),
                     'media_index' => array('name' => 'Media', 'url' => './?module=media', 'navigationId' => 'media_index'),
+                    'configure_webtranslate' => array('name' => 'Webtranslate', 'url' => './?module=configure&ctrl=webtranslate', 'navigationId' => 'configure_webtranslate'),
                 )
             );
 

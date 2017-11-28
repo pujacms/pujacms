@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a958f930b960353955c2c75c650b1499",
+    "hash": "380643996f669d49995307f1abeedcfe",
     "packages": [
         {
             "name": "jinnguyen/puja-breadcrumb",
@@ -335,16 +335,16 @@
         },
         {
             "name": "jinnguyen/puja-route",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jinnguyen/puja-route.git",
-                "reference": "9915f6bcf3662b17d2ebf0d4b4e42c7c61efa6f4"
+                "reference": "7f71ca57795859eefb8b3556d129dca36f8d5803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jinnguyen/puja-route/zipball/9915f6bcf3662b17d2ebf0d4b4e42c7c61efa6f4",
-                "reference": "9915f6bcf3662b17d2ebf0d4b4e42c7c61efa6f4",
+                "url": "https://api.github.com/repos/jinnguyen/puja-route/zipball/7f71ca57795859eefb8b3556d129dca36f8d5803",
+                "reference": "7f71ca57795859eefb8b3556d129dca36f8d5803",
                 "shasum": ""
             },
             "require": {
@@ -372,7 +372,7 @@
                 "puja",
                 "route"
             ],
-            "time": "2017-11-23 08:25:25"
+            "time": "2017-11-25 04:40:47"
         },
         {
             "name": "jinnguyen/puja-session",

@@ -5,6 +5,10 @@ use Puja\Bob\Module\System\Model\DataGrid;
 class CmsMenuController extends \Puja\Bob\Controller\DataGrid\DataGridAbstract
 {
     protected $isGridDnD = true;
+    /**
+     * @var \Puja\Bob\Model\Configure\CmsMenu
+     */
+    protected $model;
 
     public function manageAction()
     {
@@ -47,21 +51,21 @@ class CmsMenuController extends \Puja\Bob\Controller\DataGrid\DataGridAbstract
 
     public function deleteAction()
     {
-        $this->getModel()->delete($this->getParam('pkid'));
+        $this->model->deleteByPkId($this->getParam('pkid'));
         $this->json(array('status' => true));
     }
 
     public function insertAction()
     {
 
-        $this->getModel()->insert($this->getParam('name'));
+        $this->model->insert($this->getParam('name'));
         $this->json(array('status' => true));
     }
 
     public function updateChildAction()
     {
         foreach ($this->getParam('child') as $pkId => $moduleIds) {
-            $this->getModel()->updateChild($moduleIds, $pkId);
+            $this->model->updateChild($moduleIds, $pkId);
         }
         $this->json(array('status' => true));
 

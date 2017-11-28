@@ -25,17 +25,40 @@ abstract class CategoryAbstract extends EntityAbstract
         return $parents;
     }
 
-    public function getHtmlParentTreeByPkId($pkId)
+    public function getChildByPkId($pkId)
     {
+        $result = array();
+        $categories = $this->table->findByCriteria(array(
+            $this->table->getParentField()  => $pkId
+        ), 'order_id');
+        foreach ($categories as $category) {
+            $result[] = array(
+                'id' => $category[$this->table->getPkField()],
+                'text' => $category['name'],
+                'state' => 'closed',
+            );
+        }
 
-        $html = '';
+        return $result;
+    }
+
+    public function getTreeByPkId($pkId)
+    {
+        $tree = array(
+            'id' => 0,
+            'text' => 'Root',
+            'children' => array(),
+        );
+
         if (empty($pkId)) {
-            return $html;
+            $tree['current'] = true;
+            $tree['children'] = $this->getChildByPkId($pkId);
+            return array($tree);
         }
 
         $parentCategories = $this->getParentsByPkId($pkId);
         if (empty($parentCategories)) {
-            return $html;
+            return array($tree);
         }
 
         $parentIds = array();
@@ -47,45 +70,61 @@ abstract class CategoryAbstract extends EntityAbstract
             $this->table->getParentField() . '__in' => implode(',', $parentIds)
         ));
 
-        $tree = array(array(
-            "pkid" => 0,
-            'text' => 'Root',
-            'children' => array(),
-        ));
+
+
         $mapParentCategories = array();
         foreach ($categories as $category) {
-            $category['text'] = $category['name'];
-            $category['pkid'] = $category[$this->table->getPkField()];
-            $parentId = $category[$this->table->getParentField()];
-            $mapParentCategories[$parentId][] = $category;
+            $node = array(
+                'id' => $category[$this->table->getPkField()],
+                'parent_id' => $category[$this->table->getParentField()],
+                'text' => $category['name'],
+            );
+
+            if ($node['id'] == $pkId) {
+                $node['current'] = true;
+            }
+            $mapParentCategories[$node['parent_id']][] = $node;
         }
 
-        $tree[0]['children'] = $mapParentCategories[0];
-        return $tree;
-        foreach ($parentCategories as $parentCategory) {
-            $parentId = $parentCategory[$this->table->getParentField()];
-            $catId = $parentCategory[$this->table->getPkField()];;
-            $html = $this->generateHtml($html, $mapParentCategories[$parentId], $catId);
-        }
 
-        return str_replace($this->generatePlaceHolder, '', $html);
+
+        $tree = $this->buildTree($tree, $mapParentCategories, 0);
+
+        return array($tree);
+        
     }
 
-    protected function generateHtml($htmlResult, $categories, $catId)
+    protected function buildTree(&$tree, $mapping, $key)
     {
-        $html = '<ul>';
-        foreach ($categories as $category) {
-            $pkId = $category[$this->table->getPkField()];;
-            $html .= '<li>' . $category['name'] . ($catId == $pkId ? $this->generatePlaceHolder : '') .  '</li>';
-        }
-        $html .= '</ul>';
+        $next = false;
+        $nextIndex = null;
+        $categories = $mapping[$key];
 
-        if (empty($htmlResult)) {
-            $htmlResult = $html;
-        } else {
-            $htmlResult = str_replace($this->generatePlaceHolder, $html, $htmlResult);
+        foreach ($categories as $index => $category) {
+            $category['state'] = 'closed';
+
+            if (!empty($mapping[$category['id']])) {
+                $category['state'] = 'open';
+                $key = $category['id'];
+                $nextIndex = $index;
+                $next = true;
+            }
+
+            $tree['children'][$index] = $category;
         }
 
-        return $htmlResult;
+        if ($next) {
+            $this->buildTree($tree['children'][$nextIndex], $mapping, $key);
+        }
+        return $tree;
+    }
+
+    protected function buildChild($tree, $parentId, $categories)
+    {
+        foreach ($categories as $key => $category) {
+            $tree[$key] = $category;
+        }
+
+        return $tree;
     }
 }

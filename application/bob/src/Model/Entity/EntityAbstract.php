@@ -65,6 +65,12 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
 
     }
 
+    public function updateLinkCategory($pkId,  $parentId, $parents = null)
+    {
+        $linkContentCategory = Processor\LinkContentCategory::getInstance($this->table, $this->cfgModule, static::$recordType);
+        $linkContentCategory->updateParentIdByPkId($pkId,  $parentId, $parents);
+    }
+
     public function getEntityByPkId($pkId)
     {
         $entityProcessor = Processor\Entity::getInstance($this->table, $this->cfgModule, static::$recordType);

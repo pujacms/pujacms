@@ -38,12 +38,5 @@ class CategoryController extends \Puja\Bob\Controller\DataGrid\Entity\DataGridMu
             $this->configureLanguageId
         );
     }
-    
-    public function moveAction()
-    {
-        $this->json(
-            $this->model->getHtmlParentTreeByPkId($this->getParam('pkid', 0))
-        );
-    }
 
 }

@@ -94,7 +94,7 @@ class ModuleController extends \Puja\Bob\Controller\DataGrid\DataGridAbstract
                 $configureModule['core_data']['category']['tbl']['name'],
                 empty($configureModule['cfg_data']['category']['main_fields']) ? array() : $configureModule['cfg_data']['category']['main_fields']
             ),
-            'actions' => array('new', 'update', 'delete', 'move'),
+            'actions' => array('new', 'update', 'delete'),
             'limitation' => array(
                 'max_level' => array('name' => 'Max Level' , 'description' => 'Exp: 5 = can only create maximum 5 category levels. -1: no limit'),
                 'nonew_content_in_category_levels' => array('name' => 'No new content in category levels' , 'description' => 'Exp: 1,2,3: cannot create content in category levels: 1,2,3. -1: no limit'),

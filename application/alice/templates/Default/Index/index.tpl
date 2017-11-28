@@ -1,2 +1,4 @@
 {% extends master.tpl %}
-{% block body %}Index Tpl{% endblock %}
+{% block body %}
+    Welcome to PujaCMS first page!
+{% endblock %}

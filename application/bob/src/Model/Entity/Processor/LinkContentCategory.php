@@ -39,6 +39,11 @@ class LinkContentCategory extends ProcessorAbstract
         }
     }
 
+    public function updateParentIdByPkId($pkId, $parentId, $parents = null)
+    {
+
+    }
+
     protected function getLinkTable()
     {
         if ($this->cfgModule['module_type'] != 'entity' && $this->cfgModule['module_type'] != 'customize') {

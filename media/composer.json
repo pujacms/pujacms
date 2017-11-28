@@ -11,16 +11,11 @@
     }
   ],
   "minimum-stability": "stable",
+  "config": {
+    "vendor-dir": "libs"
+  },
   "require": {
-      "jinnguyen/puja-middleware": "dev-master",
-    "jinnguyen/puja-route": "v1.2.1"
+    "components/jquery": "^3"
   },
-  "require-dev": {
-
-  },
-  "autoload": {
-    "psr-4": {
-      "Puja\\Library\\": "application/library"
-    }
-  }
+  "autoload": {}
 }

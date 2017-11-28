@@ -3,6 +3,10 @@ namespace Puja\Bob\Module\Entity\Controller;
 
 class ContentController extends \Puja\Bob\Controller\DataGrid\Entity\DataGridMultiLnAbstract
 {
+    /**
+     * @var \Puja\Bob\Model\Content\Content
+     */
+    protected $model;
     protected function getDataGridModel()
     {
         return \Puja\Bob\Module\Entity\Model\DataGrid\Configure\Content::getInstance($this);
@@ -17,6 +21,9 @@ class ContentController extends \Puja\Bob\Controller\DataGrid\Entity\DataGridMul
         );
     }
 
+    /**
+     * @return \Puja\Bob\Model\Category\Category
+     */
     protected function getCategoryModel()
     {
         return \Puja\Bob\Model\Category\Category::getInstance(
