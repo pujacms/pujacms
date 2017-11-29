@@ -6,7 +6,8 @@ class Webtranslate extends \Puja\Bob\Model\DataGrid\ConfigureAbstract
     public function getToolbars()
     {
         return array(
-            array('name' => 'New', 'icon' => 'icon-add', 'fn' => 'create')
+            array('name' => 'New', 'icon' => 'icon-add', 'fn' => 'create'),
+            array('name' => 'Import to Alice', 'icon' => 'icon-filter', 'fn' => 'importAlice'),
         );
     }
 

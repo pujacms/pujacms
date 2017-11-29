@@ -35,6 +35,7 @@ $configures['database'] = array(
 
 /** PLEASE DO NOT TOUCH IF YOU ARE NOT SURE */
 $configures['cache_dir'] = APPLICATION_ROOT . '/../data/cache/bob/';
+$configures['alice_cache_dir'] = APPLICATION_ROOT . '/../data/cache/alice/';
 $configures['upload_config'] = array(
     'uploadDir' => APPLICATION_ROOT . '/../data/upload/',
 );

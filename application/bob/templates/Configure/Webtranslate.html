@@ -1,0 +1,33 @@
+<form method="post" onsubmit="return Puja.Configure.Grid.actions.executeActions.update(this);">
+    <input type="hidden" name="pkid" value="{{ mainEntity.id_configure_webtranslate }}" />
+    <div class="easyui-tabs" data-options="border:0" style="width:700px;height:100px">
+        {% for ln in lnEntity %}
+        <div title="{{ ln.name }}">
+            <table width="100%">
+                <tr>
+                    <td width="150">Value</td>
+                    <td><textarea name="LnEntity[{{ ln.id_configure_language }}][translate_value]" class="textbox easyui-input">{{ ln.fields.translate_value }}</textarea></td>
+                </tr>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+    <hr />
+    <table width="100%">
+        <tr>
+            <td width="150">Key</td>
+            <td><input type="text" name="MainEntity[translate_key]" value="{{ mainEntity.translate_key }}" class="textbox easyui-input"  /></td>
+        </tr>
+    </table>
+
+    <table>
+
+
+        <tr>
+            <td width="150">&nbsp;</td>
+            <td>
+                <input type="hidden" name="savechange" value="1" /><input type="submit" class="l-btn easyui-btn"  value="Save change"><input onclick="Puja.Configure.Grid.actions.executeActions.closeWindow();" type="button" class="l-btn easyui-btn" value="Cancel">
+            </td>
+        </tr>
+    </table>
+</form>
