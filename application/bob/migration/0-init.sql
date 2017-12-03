@@ -2,7 +2,7 @@ CREATE TABLE `puja_acl_privilege` (
   `id_acl_privilege` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `key` varchar(128) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL  COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_acl_privilege`),
   UNIQUE KEY `acl_privilege_unique` (`key`)
@@ -12,7 +12,7 @@ CREATE TABLE `puja_acl_resource` (
   `id_acl_resource` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `key` varchar(128) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL  COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_acl_resource`),
   UNIQUE KEY `acl_resource_unique` (`key`)
@@ -24,7 +24,7 @@ CREATE TABLE `puja_acl_role` (
   `name` varchar(20) NOT NULL,
   `description` TEXT NULL,
   `fk_acl_role` int(10) unsigned DEFAULT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL  COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_acl_role`),
   UNIQUE KEY `acl_role_unique` (`name`)
@@ -36,7 +36,7 @@ CREATE TABLE `puja_acl_user` (
   `username` varchar(50) NOT NULL,
   `email` varchar(255) DEFAULT '' ,
   `password` varchar(128) NOT NULL COMMENT 'hashed password',
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   `fk_acl_role` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id_acl_user`),
@@ -49,7 +49,7 @@ CREATE TABLE `puja_acl_roleset` (
   `fk_acl_role` int(10) unsigned DEFAULT NULL,
   `fk_acl_privilege` int(11) unsigned DEFAULT NULL,
   `fk_acl_resource` int(11) unsigned DEFAULT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_acl_roleset`),
   UNIQUE KEY `acl_rule_unique` (`fk_acl_role`,`fk_acl_privilege`,`fk_acl_resource`),
@@ -73,7 +73,7 @@ CREATE TABLE `puja_configure` (
   `is_system` TINYINT(1) NOT NULL,
   `order_id` INT(5) NOT NULL,
   `note` varchar(255) NOT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_configure`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  COLLATE=utf8_unicode_ci;
@@ -84,7 +84,7 @@ CREATE TABLE `puja_configure_cmsmenu` (
   `status` TINYINT(1) NOT NULL,
   `order_id` INT(5) NOT NULL,
   `child` TEXT NOT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_configure_cmsmenu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  COLLATE=utf8_unicode_ci;
@@ -98,7 +98,7 @@ CREATE TABLE `puja_configure_module` (
   `description` TEXT NULL,
   `core_data` TEXT NOT NULL,
   `cfg_data` TEXT NOT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_configure_module`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  COLLATE=utf8_unicode_ci;
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `puja_configure_module_type` (
   `module_type` varchar(20) NOT NULL,
   `name` varchar(255) NOT NULL,
   `order_id` int(3) NOT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_configure_module_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -125,7 +125,7 @@ CREATE TABLE `puja_configure_cmstheme` (
   `status` tinyint(1) DEFAULT 1,
   `order_id` int(3) DEFAULT 0,
   `theme_data` TEXT NOT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_configure_cmstheme`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  COLLATE=utf8_unicode_ci;
@@ -135,7 +135,7 @@ CREATE TABLE `puja_configure_group` (
   `name` varchar(255) NOT NULL,
   `order_id` int(3) NOT NULL,
   `status` int(3) NOT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_configure_group`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  COLLATE=utf8_unicode_ci;
@@ -147,7 +147,7 @@ CREATE TABLE `puja_configure_language` (
   `is_default` int(3) NOT NULL,
   `order_id` int(3) NOT NULL,
   `status` int(3) NOT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_configure_language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  COLLATE=utf8_unicode_ci;
@@ -161,7 +161,7 @@ CREATE TABLE `puja_content` (
   `fk_category` int(10) NOT NULL COMMENT 'system',
   `order_id` int(10) NOT NULL COMMENT 'system',
   `status` tinyint(1) DEFAULT NULL COMMENT 'system',
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_content`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -180,7 +180,7 @@ CREATE TABLE `puja_category` (
   `parent_fk_category` int(10) NOT NULL COMMENT 'system',
   `order_id` int(10) NOT NULL COMMENT 'system',
   `status` tinyint(1) DEFAULT NULL COMMENT 'system',
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -217,7 +217,7 @@ CREATE TABLE `puja_link_entity_media` (
 CREATE TABLE `puja_html` (
   `id_html` int(10) unsigned NOT NULL COMMENT 'system',
   `order_id` int(10) NOT NULL COMMENT 'system',
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_html`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -246,7 +246,7 @@ CREATE TABLE `puja_media` (
   `filesize` INT(10),
   `image_size` VARCHAR(255),
   `thumb_size` VARCHAR(255),
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_media`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -264,7 +264,7 @@ CREATE TABLE `puja_configure_pagemeta` (
 CREATE TABLE `puja_configure_webtranslate` (
   `id_configure_webtranslate` int(5) NOT NULL AUTO_INCREMENT,
   `translate_key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP  COMMENT 'system',
+  `created_at` DATETIME NULL COMMENT 'system',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  COMMENT 'system',
   PRIMARY KEY (`id_configure_webtranslate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

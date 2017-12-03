@@ -9,9 +9,10 @@ abstract class ContentAbstract extends EntityAbstract
         return $content[$this->table->getParentField()];
     }
 
-    public function updateCategoryIdByPkId($catId, $pkId)
+    public function updateCategoryIdByPkId($catId, $pkId, $parents = array())
     {
-        
+        $linkContentCategory = Processor\LinkContentCategory::getInstance($this->table, $this->cfgModule, static::$recordType);
+        $linkContentCategory->save($pkId, $catId, $parents);
         $this->updateByPkId(array($this->table->getParentField() => (int) $catId), $pkId);
     }
 }

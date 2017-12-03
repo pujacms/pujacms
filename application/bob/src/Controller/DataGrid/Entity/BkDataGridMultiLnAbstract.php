@@ -3,7 +3,7 @@ namespace Puja\Bob\Controller\DataGrid\Entity;
 
 use Puja\Bob\Model\Constant;
 
-abstract class DataGridMultiLnAbstract extends \Puja\Bob\Controller\DataGrid\Entity\DataGridAbstract
+abstract class BkDataGridMultiLnAbstract extends \Puja\Bob\Controller\DataGrid\Entity\DataGridAbstract
 {
     /**
      * @var \Puja\Bob\Model\Entity\EntityLocalizeAbstract

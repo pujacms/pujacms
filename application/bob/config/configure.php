@@ -4,6 +4,7 @@ defined('APPLICATION_ROOT') || define('APPLICATION_ROOT', realpath(APPLICATION_D
 defined('DEBUG_MODE') || define('DEBUG_MODE', true);
 
 $configures = array();
+
 /** This configures can access from template files */
 $configures['application'] = array(
     'company_name' => '%application.company_name%',

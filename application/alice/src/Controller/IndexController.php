@@ -7,4 +7,11 @@ class IndexController extends Controller
     {
         $this->render('Index/index.tpl', array());
     }
+
+    public static function actions()
+    {
+        return array(
+            'SwitchLocale' => '\\Puja\\Alice\\Action\\Index\\SwitchLocale',
+        );
+    }
 }

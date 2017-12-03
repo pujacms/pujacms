@@ -4,6 +4,24 @@ defined('APPLICATION_ROOT') || define('APPLICATION_ROOT', realpath(APPLICATION_D
 defined('DEBUG_MODE') || define('DEBUG_MODE', true);
 
 $configures = array();
+$configures['bobwebservice'] = array(
+    'url' => '%webservice.url%',
+    'token' => '%webservice.token%',
+);
+
+$configures['session'] =  array(
+    'saveHandler' => '%session.saveHandler%', 
+    'savePath' => '%session.savePath%',
+    'enabled' => '%session.enabled%', 
+);
+
+$configures['localization'] = array(
+    'debug' => DEBUG_MODE,
+    'defaultLocaleId' => 1,
+    'cache_dir' => APPLICATION_ROOT . '/../data/cache/alice/i18n_%s.php',
+    
+);
+
 /** This configures can access from template files */
 $configures['application'] = array(
     'path_dir' => '%application.path_dir%',
@@ -14,8 +32,6 @@ $configures['application'] = array(
 
 
 /** PLEASE DO NOT TOUCH IF YOU ARE NOT SURE */
-$configures['cache_dir'] = APPLICATION_ROOT . '/../data/cache/alice/';
-$configures['upload_dir'] = APPLICATION_ROOT . '/../data/upload/';
 
 $configures['router'] = array(
     'root_namespace' => '\\Puja\\Alice\\',
@@ -46,9 +62,9 @@ $configures['error_handler'] = array(
 
 $configures['application'] = array_merge($configures['application'], array(
     'request_uri' => 'REQUEST_URI',
-    'Bootstrap' => '\\Puja\\Middleware\\Bootstrap',
+    'Bootstrap' => '\\Puja\\Alice\\Middleware\\Bootstrap',
     'View' => '\\Puja\\Middleware\\View',
-    'Route' => '\\Puja\\Middleware\\Route',
+    'Route' => '\\Puja\\Alice\\Middleware\\Route',
     'error404' => array('controller' => '\\Puja\\Alice\\Controller\\IndexController', 'action' => '\\Puja\\Alice\\Action\\Index\\Error404', 'annotation' => true),
 ));
 

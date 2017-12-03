@@ -114,21 +114,36 @@ abstract class DataGridAbstract extends \Puja\Bob\Controller\DataGrid\DataGridAb
 
     protected function setUpdateData($pkId, $parentId)
     {
-        return $this->model->setEntity(
+        $entityId =  $this->model->setEntity(
             $pkId,
             $parentId,
             $this->getParam(Constant::MAIN_ENTITY),
             static::getParents()
         );
+        if ($this->configureLanguageId) {
+            $this->model->getLocalizeModel()->setEntityLocalize(
+                $entityId,
+                $this->getParam(Constant::LN_ENTITY)
+            );
+        }
+
+        return $entityId;
     }
 
     protected function getUpdateData($pkId, $parentId)
     {
-        return array(
+        $data = array(
             'MainEntity' => $this->model->getEntityByPkId($pkId),
             'IsDynamicOption' => $this->isDynamicOption,
             'BackUrl' => './?module=' . $this->getModuleId() . '&parentid=' . $parentId . '&typeid=' . $this->idConfigureModule,
         );
+        
+        if ($this->configureLanguageId) {
+            $data['LnEntities'] = $this->model->getLocalizeModel()->getEntityByPkId($pkId);
+            $data['IsMultiLang'] = true;
+        }
+
+        return $data;
     }
 
     protected function listSortDefault()
@@ -152,25 +167,5 @@ abstract class DataGridAbstract extends \Puja\Bob\Controller\DataGrid\DataGridAb
 
     }
 
-    // this action works ONLY for content ( not work for Category)
-    public function moveAction()
-    {
-        if ($this->getParam('savechange')) {
-            $this->model->updateCategoryIdByPkId(
-                $this->getParam('catid'),
-                $this->getParam('pkid')
-            );
-            $this->json(array('status' => true));
-        }
-
-        if ($this->getParam('id')) {
-            // id = category id, the parameter from tree
-            $tree = $this->getCategoryModel()->getChildByPkId($this->getParam('id', 0));
-        } else {
-            // pkid: content id
-            $catId = $this->model->getCategoryIdByPkId($this->getParam('pkid', 0));
-            $tree = $this->getCategoryModel()->getTreeByPkId($catId);
-        }
-        $this->json($tree);
-    }
+    
 }

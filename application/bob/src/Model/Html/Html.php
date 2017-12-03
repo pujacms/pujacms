@@ -8,7 +8,16 @@ class Html extends \Puja\Bob\Model\Entity\EntityAbstract
 
     protected function getTable()
     {
-        return \Puja\Bob\DbTable\Html\Html::getInstance();
+        $table = \Puja\Bob\DbTable\Html\Html::getInstance();
+        $table->setIdConfigureLanguageDefault($this->idConfigureLanguage);
+        $table->setTableLocalize($this->getTableLocalize());
+        return $table;
+        
+    }
+
+    protected function getTableLocalize()
+    {
+        return \Puja\Bob\DbTable\Html\HtmlLn::getInstance();
     }
 
     public function addRecordByPkId($pkId)

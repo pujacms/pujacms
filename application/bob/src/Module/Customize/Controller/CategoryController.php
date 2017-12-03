@@ -1,8 +1,9 @@
 <?php
 namespace Puja\Bob\Module\Customize\Controller;
 
-class CategoryController extends \Puja\Bob\Controller\DataGrid\Entity\DataGridAbstract
+class CategoryController extends \Puja\Bob\Controller\DataGrid\Entity\CategoryAbstract
 {
+    protected $configureLanguageId = null;
     protected function getDataGridModel()
     {
         return \Puja\Bob\Module\Customize\Model\DataGrid\Configure\Category::getInstance($this);

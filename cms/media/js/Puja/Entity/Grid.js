@@ -118,7 +118,7 @@ Puja.Entity.Grid = {
             move: function (obj) {
                 $(Puja.Entity.Grid.WindowId).window({
                     title: 'Update category',
-                    content: '<form method="post" action="' + $(obj).attr('href') + '" onsubmit="Puja.Entity.Grid.actions.executeActions.moveSubmit(this);return false;"><ul id="Easyui-Tree"></ul><div style="position: absolute;bottom: 10px;"><input type="hidden" name="savechange" value="1" /><input type="submit" class="l-btn easyui-btn"  value="Save change"><input onclick="Puja.Entity.Grid.actions.executeActions.moveClose();" type="button" class="l-btn easyui-btn" value="Cancel"></div></form>'
+                    content: '<form method="post" action="' + $(obj).attr('href') + '&act=update-category" onsubmit="Puja.Entity.Grid.actions.executeActions.moveSubmit(this);return false;"><ul id="Easyui-Tree"></ul><div style="position: absolute;bottom: 10px;"><input type="hidden" name="savechange" value="1" /><input type="submit" class="l-btn easyui-btn"  value="Save change"><input onclick="Puja.Entity.Grid.actions.executeActions.moveClose();" type="button" class="l-btn easyui-btn" value="Cancel"></div></form>'
                 }).window('open');
                 $('#Easyui-Tree').tree({
                     url: $(obj).attr('href'),

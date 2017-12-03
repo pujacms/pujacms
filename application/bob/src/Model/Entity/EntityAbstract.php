@@ -7,11 +7,19 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
      * @var DbTable\Entity\EntityAbstract
      */
     protected $table;
+
+    /**
+     * @var EntityLocalize
+     */
+    protected $localizeModel;
+
     protected $idConfigureModule;
     protected $idConfigureLanguage;
     protected $cfgModule;
     protected static $recordType;
-    
+
+
+    protected function getTableLocalize(){}
     public static function getInstance($idConfigureModule, $cfgModule = null, $idConfigureLanguage = null)
     {
         if (empty(static::$modelName)) {
@@ -30,8 +38,24 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
         $this->idConfigureModule = $idConfigureModule;
         $this->cfgModule = $cfgModule;
         $this->idConfigureLanguage = $idConfigureLanguage;
+        if (null !== $idConfigureLanguage) {
+            $tableLocalize = $this->getTableLocalize();
+            if (null === $tableLocalize) {
+                throw new \Exception('TableLn must NOT empty');
+            }
+
+            $this->localizeModel = EntityLocalize::getInstance($tableLocalize, $this->cfgModule, static::$recordType);
+        }
 
         parent::__construct();
+    }
+
+    /**
+     * @return  EntityLocalize
+     */
+    public function getLocalizeModel()
+    {
+        return $this->localizeModel;
     }
 
     public function getRecordType()
@@ -54,12 +78,15 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
         
         $entityMediaProcessor = Processor\LinkEntityMedia::getInstance($this->table, $this->cfgModule, static::$recordType);
         $entityMediaProcessor->save($entityId, $entityProcessor->getUploadedMediaIds());
-    
         
         if ($isInsert) {
             $linkContentCategory = Processor\LinkContentCategory::getInstance($this->table, $this->cfgModule, static::$recordType);
             $linkContentCategory->save($entityId, $parentId, $parents);
         }
+
+        $linkContentContent = Processor\LinkContentContent::getInstance($this->table, $this->cfgModule, static::$recordType);
+        $linkContentContent->save($entityId, $parentId, $parents);
+
 
         return $entityId;
 
@@ -96,9 +123,12 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
 
     protected function getCondByParentId($parentId)
     {
-        return array(
-            $this->table->getParentField() => $parentId,
-        );
+        if (null === $parentId) {
+            return '1';
+        }
+
+        return $this->table->getParentField() . '=' . (int) $parentId;
+
     }
 
     public function updateOrders($orderData)

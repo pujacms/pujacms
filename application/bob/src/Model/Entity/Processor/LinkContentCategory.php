@@ -15,6 +15,14 @@ class LinkContentCategory extends ProcessorAbstract
             return null;
         }
 
+        $linkTable = $this->getLinkTable();
+        if (null === $linkTable) {
+            return null;
+        }
+
+
+        $linkTable->deleteByPkId($contentId);
+        
         if (empty($categoryId)) {
             return null;
         }
@@ -24,13 +32,7 @@ class LinkContentCategory extends ProcessorAbstract
             $parents[] = array($catFieldName => $categoryId);
         }
 
-        $linkTable = $this->getLinkTable();
-        if (null === $linkTable) {
-            return null;
-        }
 
-
-        $linkTable->deleteByPkId($contentId);
         foreach ($parents as $parent) {
             $linkTable->insert(array(
                 $linkTable->getPkField() => $contentId,

@@ -1,5 +1,6 @@
 .idea/*
 .DS_Store
+.htaccess
 *_local.php
 cms/media/libs/*
 media/libs/*

@@ -3,19 +3,21 @@ namespace Puja\Bob\DbTable\Entity;
 
 abstract class EntityMultiLnAbstract extends EntityAbstract
 {
+    /**
+     * @var \Puja\Bob\DbTable\Entity\EntityLocalizeAbstract
+     */
+    protected $lnTable;
     protected $idConfigureLanguageDefault;
-    public function __construct($tableName = null)
-    {
-        parent::__construct($tableName);
-        $this->lnTable = $this->getLnTable();
-    }
 
     public function setIdConfigureLanguageDefault($idConfigureLanguageDefault)
     {
         $this->idConfigureLanguageDefault = $idConfigureLanguageDefault;
     }
 
-    abstract protected function getLnTable();
+    public function setTableLocalize(\Puja\Bob\DbTable\Entity\EntityLocalizeAbstract $tableLocalize)
+    {
+        $this->lnTable = $tableLocalize;
+    }
 
     protected function joinLn(\Puja\SqlBuilder\Builder $builder, $fkConfigureLanguage, $selectedCols = array('*'))
     {

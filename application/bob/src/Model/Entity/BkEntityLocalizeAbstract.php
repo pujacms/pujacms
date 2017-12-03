@@ -1,7 +1,7 @@
 <?php
 namespace Puja\Bob\Model\Entity;
 use Puja\Bob\DbTable;
-abstract class EntityLocalizeAbstract extends \Puja\Bob\Model\Entity\EntityAbstract
+abstract class BkEntityLocalizeAbstract extends \Puja\Bob\Model\Entity\EntityAbstract
 {
     public function getByPkId($pkId)
     {

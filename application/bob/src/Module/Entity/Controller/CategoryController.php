@@ -1,7 +1,7 @@
 <?php
 namespace Puja\Bob\Module\Entity\Controller;
 
-class CategoryController extends \Puja\Bob\Controller\DataGrid\Entity\DataGridMultiLnAbstract
+class CategoryController extends \Puja\Bob\Controller\DataGrid\Entity\CategoryAbstract
 {
     /**
      * @var \Puja\Bob\Model\Category\Category
@@ -24,15 +24,6 @@ class CategoryController extends \Puja\Bob\Controller\DataGrid\Entity\DataGridMu
     protected function getCategoryModel()
     {
         return \Puja\Bob\Model\Category\Category::getInstance(
-            $this->idConfigureModule,
-            $this->getCurrentCfgModule(),
-            $this->configureLanguageId
-        );
-    }
-
-    protected function getLocalizeModel()
-    {
-        return \Puja\Bob\Model\Category\CategoryLocalize::getInstance(
             $this->idConfigureModule,
             $this->getCurrentCfgModule(),
             $this->configureLanguageId

@@ -1,8 +1,9 @@
 <?php
 namespace Puja\Bob\Module\Customize\Controller;
 
-class ContentController extends \Puja\Bob\Controller\DataGrid\Entity\DataGridAbstract
+class ContentController extends \Puja\Bob\Controller\DataGrid\Entity\ContentAbstract
 {
+    protected $configureLanguageId = null;
     protected function getDataGridModel()
     {
         return \Puja\Bob\Module\Customize\Model\DataGrid\Configure\Content::getInstance($this);

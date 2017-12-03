@@ -1,0 +1,100 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "3c6c3dc2af96cfdf0ee5be85945dc670",
+    "packages": [
+        {
+            "name": "jinnguyen/puja-stdlib",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-stdlib.git",
+                "reference": "e9477c6ab93b212c2d2d873818d966ff4e65321e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-stdlib/zipball/e9477c6ab93b212c2d2d873818d966ff4e65321e",
+                "reference": "e9477c6ab93b212c2d2d873818d966ff4e65321e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Stdlib\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Stdlib provides basic functions such as File,Folder and more ",
+            "keywords": [
+                "Standard lib",
+                "file system",
+                "filesystem",
+                "folder",
+                "puja"
+            ],
+            "time": "2017-02-21 08:58:14"
+        },
+        {
+            "name": "pujacms/i18n",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pujacms/i18n.git",
+                "reference": "f7f055555281d376bed48f4cba61c0ce68afa7e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pujacms/i18n/zipball/f7f055555281d376bed48f4cba61c0ce68afa7e4",
+                "reference": "f7f055555281d376bed48f4cba61c0ce68afa7e4",
+                "shasum": ""
+            },
+            "require": {
+                "jinnguyen/puja-stdlib": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\I18n\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "I18n library to manage localize message",
+            "keywords": [
+                "i18n",
+                "puja"
+            ],
+            "time": "2017-12-01 14:59:36"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "pujacms/i18n": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

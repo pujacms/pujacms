@@ -63,7 +63,7 @@ class Entity extends ProcessorAbstract
         if (empty($this->cfgModule['cfg_data'][$this->recordType]['main_fields'])) {
             return array();
         }
-
+        
         $entityData = $this->table->findOneByCriteria(array(
             $this->table->getPkField() => $pkId,
         ));

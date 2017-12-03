@@ -15,9 +15,4 @@ class Category extends \Puja\Bob\DbTable\Entity\EntityMultiLnAbstract
 
         return $data[$this->parentField];
     }
-
-    protected function getLnTable()
-    {
-        return CategoryLn::getInstance();
-    }
 }
