@@ -15,7 +15,7 @@
     "pujacms/i18n": "dev-master"
   },
   "config": {
-    "vendor-dir": "../../vendor/alice",
+    "vendor-dir": "../vendor/alice",
     "autoloader-suffix": "Alice"
   },
   "require-dev": {},

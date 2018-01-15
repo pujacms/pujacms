@@ -14,8 +14,14 @@ class Controller extends \Puja\Middleware\Controller
         return $this->localeId;
     }
 
+    protected function init()
+    {
+
+    }
+
     public function beforeLoadAction()
     {
+        $this->init();
         $localizeCfg = \Puja\Configure\Configure::getInstance('localization');
         $this->localeId = \Puja\Session\Session::getInstance(\Puja\Alice\Constant::SESSION_LOCALE_INSTANCE)->get(
             \Puja\Alice\Constant::SESSION_LOCALE_KEY,

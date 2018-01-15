@@ -47,6 +47,11 @@ abstract class TableAbstract extends \Puja\Db\Table
         return $this->findOneByCriteria(array($this->pkField => $pkId));
     }
 
+    public function getByPkIds($pkIds)
+    {
+        return $this->findByCriteria(array($this->pkField . '__in' => implode(',', $pkIds)));
+    }
+
     public function updateByPkId($data, $pkId)
     {
         $this->updateByCriteria($data, array($this->pkField . '__int' => $pkId));

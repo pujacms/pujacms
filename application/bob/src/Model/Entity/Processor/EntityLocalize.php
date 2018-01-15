@@ -43,7 +43,8 @@ class EntityLocalize extends Entity
             $entityData = FormTransfer::getInstance()->convertToDbData(
                 $entityData,
                 $this->cfgModule['cfg_data'][$this->recordType]['ln_fields'],
-                $this->uploadedMediaIds
+                $this->uploadedMediaIds,
+                $this->dynamicOptionIds
             );
             $this->table->replace($this->prepareEntityLocalizeInsert($entityData, $entityId, $idConfigureLanguage));
         }

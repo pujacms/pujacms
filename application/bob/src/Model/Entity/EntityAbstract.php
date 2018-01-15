@@ -85,7 +85,7 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
         }
 
         $linkContentContent = Processor\LinkContentContent::getInstance($this->table, $this->cfgModule, static::$recordType);
-        $linkContentContent->save($entityId, $parentId, $parents);
+        $linkContentContent->save($entityId, $entityProcessor->getDynamicOptionIds());
 
 
         return $entityId;

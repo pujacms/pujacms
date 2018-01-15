@@ -13,14 +13,14 @@
   "minimum-stability": "stable",
   "require": {
       "jinnguyen/puja-middleware": "dev-master",
-    "jinnguyen/puja-route": "v1.2.1"
+      "jinnguyen/puja-form": "dev-master"
   },
   "require-dev": {
 
   },
   "autoload": {
     "psr-4": {
-      "Puja\\Library\\": "application/library"
+      "Puja\\Library\\": "library"
     }
   }
 }

@@ -12,13 +12,12 @@
   ],
   "minimum-stability": "stable",
   "config": {
-    "vendor-dir": "../../vendor/bob",
+    "vendor-dir": "../vendor/bob",
     "autoloader-suffix": "Bob"
   },
   "require": {
       "jinnguyen/puja-image": "dev-master",
-      "jinnguyen/puja-upload": "dev-master",
-      "jinnguyen/puja-form": "dev-master"
+      "jinnguyen/puja-upload": "dev-master"
   },
   "autoload": {
     "psr-4": {

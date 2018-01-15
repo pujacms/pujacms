@@ -34,6 +34,10 @@ $configures['database'] = array(
     )
 );
 
+$configures['queue'] = array(
+    'class' => '\\Puja\\Library\\Queue\\Provider\\Db\\Queue',
+);
+
 /** PLEASE DO NOT TOUCH IF YOU ARE NOT SURE */
 $configures['cache_dir'] = APPLICATION_ROOT . '/../data/cache/bob/';
 $configures['alice_cache_dir'] = APPLICATION_ROOT . '/../data/cache/alice/';

@@ -4,7 +4,7 @@
 *_local.php
 cms/media/libs/*
 media/libs/*
-vendor/*
+application/vendor/*
 data/*
 !data/.gitkeep
 !data/cache/.gitkeep

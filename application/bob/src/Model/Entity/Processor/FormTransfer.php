@@ -3,7 +3,6 @@ namespace Puja\Bob\Model\Entity\Processor;
 
 class FormTransfer
 {
-    protected $dynamicOptions = array();
 
     public static function getInstance()
     {
@@ -13,8 +12,7 @@ class FormTransfer
     protected function __construct()
     {
     }
-
-
+    
     public function convertToHtmlData($field, $cfg, $entityData, $mediaData, $dynamicOptions)
     {
         $value = null;
@@ -61,7 +59,7 @@ class FormTransfer
         return $value;
     }
 
-    public function convertToDbData($entityData, $entityCfg, &$uploadedMediaIds)
+    public function convertToDbData($entityData, $entityCfg, &$uploadedMediaIds, &$dynamicOptions)
     {
         if (empty($entityData)) {
             return array();
@@ -79,7 +77,7 @@ class FormTransfer
             );
 
             if ($entityCfg[$field]['field_type'] == 'dynamic_option') {
-                $this->dynamicOptions[$field] = $value;
+                $dynamicOptions[$field] = $value;
             }
         }
 

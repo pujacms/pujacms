@@ -7,7 +7,7 @@ git clone https://github.com/pujacms/pujacms.git
 cd pujacms</pre>
 Then run below commands:
 <pre>
-composer install
+composer install -d application/
 composer install -d application/alice/
 composer install -d application/bob/
 composer install -d cms/

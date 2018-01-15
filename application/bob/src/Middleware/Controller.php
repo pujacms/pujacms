@@ -9,7 +9,7 @@ class Controller extends \Puja\Middleware\Controller
 {
     protected $jsonStore;
     /**
-     * @var Session
+     * @var \Puja\Bob\Model\User
      */
     protected $user;
     protected $navigationId = 'none';
@@ -27,16 +27,12 @@ class Controller extends \Puja\Middleware\Controller
     protected $breadcrumb;
     public function beforeLoadAction()
     {
-        $this->init();
-        $this->user = new \Puja\Bob\Model\User();
-        $this->breadcrumb = new \Puja\Breadcrumb\Breadcrumb();
-        $this->acl = new User(
-            $this->user,
-            $this->getModuleId(),
-            $this->getControllerId(),
-            $this->getActionId()
-        );
+        
 
+        $this->initCoreVariables();
+        $this->init();
+
+        $this->breadcrumb = new \Puja\Breadcrumb\Breadcrumb();
         $this->view->addData('cfg', \Puja\Configure\Configure::getInstance('application')->getAll());
         if ($this->user->isGuest() && $this->getUri() != '/auth/login/') {
             $this->render('Auth/login.tpl', array());
@@ -58,6 +54,17 @@ class Controller extends \Puja\Middleware\Controller
 
         $this->view->addData('current_user', $this->user->getCurrentUser());
         $this->view->addData('request', $this->getParams());
+    }
+
+    protected function initCoreVariables()
+    {
+        $this->user = new \Puja\Bob\Model\User();
+        $this->acl = new User(
+            $this->user,
+            $this->getModuleId(),
+            $this->getControllerId(),
+            $this->getActionId()
+        );
     }
 
     protected function init()

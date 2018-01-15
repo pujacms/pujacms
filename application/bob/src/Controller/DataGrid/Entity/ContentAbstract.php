@@ -37,7 +37,9 @@ abstract class ContentAbstract extends DataGridAbstract
 
     public function dynamicOptionDataAction()
     {
-        $list = $list = $this->model->getList();
+        $list = $this->model->getDynamicData(
+            $this->getParam('options')
+        );
 
         return $this->json($list);
     }

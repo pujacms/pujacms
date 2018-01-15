@@ -11,9 +11,16 @@ class Entity extends ProcessorAbstract
     protected $table;
     protected $uploadedMediaIds = array();
 
+    protected $dynamicOptionIds = array();
+
     public function getUploadedMediaIds()
     {
         return $this->uploadedMediaIds;
+    }
+
+    public function getDynamicOptionIds()
+    {
+        return $this->dynamicOptionIds;
     }
 
     
@@ -33,7 +40,8 @@ class Entity extends ProcessorAbstract
             $entityData = FormTransfer::getInstance()->convertToDbData(
                 $entityData,
                 $this->cfgModule['cfg_data'][$this->recordType]['main_fields'],
-                $this->uploadedMediaIds
+                $this->uploadedMediaIds,
+                $this->dynamicOptionIds
             );
         }
         
