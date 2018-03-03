@@ -78,24 +78,5 @@ abstract class BaseAbstract
 
         return $data;
     }
-
-    public function getList($parentId = null, $query = null, $orderBy = null, $page = 0, $limit = 0)
-    {
-        $cond = $this->getCondByParentId($parentId) . ' AND ' . $this->getCondByQuery(addslashes($query));
-        return array(
-            'rows' => $this->table->findByCriteria($cond, $orderBy, $page * $limit, $limit),
-            'total' => $this->table->getCountByCriteria($cond)
-        );
-    }
-
-    protected function getCondByParentId($parentId)
-    {
-        return '1';
-    }
-
-    protected function getCondByQuery($query = null)
-    {
-        return '1';
-    }
     
 }

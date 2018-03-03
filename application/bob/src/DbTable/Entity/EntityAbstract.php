@@ -49,4 +49,9 @@ abstract class EntityAbstract extends \Puja\Bob\DbTable\TableAbstract\TableAbstr
             array($this->parentField => $parentId)
         );
     }
+
+    public function getCondBySearchQuery($query = null)
+    {
+        return 'name LIKE "%' . $query . '%"';
+    }
 }

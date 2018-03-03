@@ -1,0 +1,593 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "4e3d4a954fb08f2fdd7d923703cb0f09",
+    "packages": [
+        {
+            "name": "jinnguyen/puja-breadcrumb",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-breadcrumb.git",
+                "reference": "ec4a4eb49ba3c5e5eaed2afa72700b82abf83025"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-breadcrumb/zipball/ec4a4eb49ba3c5e5eaed2afa72700b82abf83025",
+                "reference": "ec4a4eb49ba3c5e5eaed2afa72700b82abf83025",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Breadcrumb\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Breadcrumb is a simple class to manage the breadcrumbs",
+            "keywords": [
+                "breadcrumb",
+                "puja"
+            ],
+            "time": "2017-01-08 12:47:40"
+        },
+        {
+            "name": "jinnguyen/puja-config",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-config.git",
+                "reference": "468053463905a95d5dfa439dcc4e1ac893ec5d46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-config/zipball/468053463905a95d5dfa439dcc4e1ac893ec5d46",
+                "reference": "468053463905a95d5dfa439dcc4e1ac893ec5d46",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Configure\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Allow load multi configured files, access the configured value as an object",
+            "keywords": [
+                "config",
+                "configuration",
+                "configure",
+                "puja"
+            ],
+            "time": "2016-11-04 10:52:37"
+        },
+        {
+            "name": "jinnguyen/puja-db",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-db.git",
+                "reference": "e5a08442e42f0f00892d6305f63cebc035c2f801"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-db/zipball/e5a08442e42f0f00892d6305f63cebc035c2f801",
+                "reference": "e5a08442e42f0f00892d6305f63cebc035c2f801",
+                "shasum": ""
+            },
+            "require": {
+                "jinnguyen/puja-sqlbuilder": "^1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Db\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Db is an adapter that allow your application access to a databases",
+            "keywords": [
+                "db",
+                "puja"
+            ],
+            "time": "2017-11-22 17:40:40"
+        },
+        {
+            "name": "jinnguyen/puja-entity",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-entity.git",
+                "reference": "58f698b6e849b0120031038a485fbbecce30f243"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-entity/zipball/58f698b6e849b0120031038a485fbbecce30f243",
+                "reference": "58f698b6e849b0120031038a485fbbecce30f243",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Entity\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Entity is an abstract layer to manage a entity object and easy to get the Docblock document",
+            "keywords": [
+                "entity",
+                "puja"
+            ],
+            "time": "2016-12-18 12:30:47"
+        },
+        {
+            "name": "jinnguyen/puja-error",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-error.git",
+                "reference": "0987c60501f2e842565e6f2efa0598635fd14bc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-error/zipball/0987c60501f2e842565e6f2efa0598635fd14bc0",
+                "reference": "0987c60501f2e842565e6f2efa0598635fd14bc0",
+                "shasum": ""
+            },
+            "require": {
+                "jinnguyen/puja-entity": "^1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Error\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Error are the handler layers, that handle all fatal exceptions/errors ( include fatal errors) from PHP application. Support  callback function",
+            "keywords": [
+                "Puja Error",
+                "error",
+                "puja"
+            ],
+            "time": "2016-12-05 12:01:38"
+        },
+        {
+            "name": "jinnguyen/puja-form",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-form.git",
+                "reference": "cc4b97836bd5e5be29384451b1126ebb01978f13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-form/zipball/cc4b97836bd5e5be29384451b1126ebb01978f13",
+                "reference": "cc4b97836bd5e5be29384451b1126ebb01978f13",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Form\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "The MIT License (MIT)"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja Form",
+            "keywords": [
+                "form",
+                "puja"
+            ],
+            "time": "2017-11-15 01:53:20"
+        },
+        {
+            "name": "jinnguyen/puja-log",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-log.git",
+                "reference": "43ff7917f68ec772c5a355b9db6613c8c1907729"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-log/zipball/43ff7917f68ec772c5a355b9db6613c8c1907729",
+                "reference": "43ff7917f68ec772c5a355b9db6613c8c1907729",
+                "shasum": ""
+            },
+            "require": {
+                "jinnguyen/puja-db": "*",
+                "jinnguyen/puja-entity": ">=1.1",
+                "jinnguyen/puja-stdlib": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Log\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Log allow sends your logs to files, databases and you can add more drive by your self",
+            "keywords": [
+                "Puja Log",
+                "log",
+                "puja"
+            ],
+            "time": "2017-01-21 04:14:45"
+        },
+        {
+            "name": "jinnguyen/puja-middleware",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-middleware.git",
+                "reference": "4d69683784fe432a027c2f561a8242f7bf36239f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-middleware/zipball/4d69683784fe432a027c2f561a8242f7bf36239f",
+                "reference": "4d69683784fe432a027c2f561a8242f7bf36239f",
+                "shasum": ""
+            },
+            "require": {
+                "jinnguyen/puja-breadcrumb": "*",
+                "jinnguyen/puja-config": "*",
+                "jinnguyen/puja-db": "*",
+                "jinnguyen/puja-entity": "*",
+                "jinnguyen/puja-error": "*",
+                "jinnguyen/puja-log": "*",
+                "jinnguyen/puja-paginator": "*",
+                "jinnguyen/puja-route": "*",
+                "jinnguyen/puja-session": "*",
+                "jinnguyen/puja-stdlib": "*",
+                "jinnguyen/puja-template": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Middleware\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "The MIT License (MIT)"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Middleware is a middleware library for !",
+            "keywords": [
+                "middleware",
+                "puja"
+            ],
+            "time": "2017-02-24 03:52:12"
+        },
+        {
+            "name": "jinnguyen/puja-paginator",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-paginator.git",
+                "reference": "2a2651d8266149f96ae17c999c510446f68a2dc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-paginator/zipball/2a2651d8266149f96ae17c999c510446f68a2dc0",
+                "reference": "2a2651d8266149f96ae17c999c510446f68a2dc0",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Paginator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Paginator is a flexible component for paginating collections of data and presenting that data to users.",
+            "keywords": [
+                "paginator",
+                "puja"
+            ],
+            "time": "2017-01-18 02:07:33"
+        },
+        {
+            "name": "jinnguyen/puja-route",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-route.git",
+                "reference": "7f71ca57795859eefb8b3556d129dca36f8d5803"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-route/zipball/7f71ca57795859eefb8b3556d129dca36f8d5803",
+                "reference": "7f71ca57795859eefb8b3556d129dca36f8d5803",
+                "shasum": ""
+            },
+            "require": {
+                "jinnguyen/puja-stdlib": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Route\\": "src/",
+                    "Puja\\Route\\Demo\\": "demo/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Route is a router component, that allow to parse request to module/controller/action",
+            "keywords": [
+                "puja",
+                "route"
+            ],
+            "time": "2017-11-25 04:40:47"
+        },
+        {
+            "name": "jinnguyen/puja-session",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-session.git",
+                "reference": "26dd9288019f400691e120d107bdcd9063269a19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-session/zipball/26dd9288019f400691e120d107bdcd9063269a19",
+                "reference": "26dd9288019f400691e120d107bdcd9063269a19",
+                "shasum": ""
+            },
+            "require": {
+                "jinnguyen/puja-db": "^1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Session\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Handle session save data, supported save to file, database, MemCache, Redis",
+            "keywords": [
+                "puja",
+                "session"
+            ],
+            "time": "2016-11-14 01:37:33"
+        },
+        {
+            "name": "jinnguyen/puja-sqlbuilder",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-sqlbuilder.git",
+                "reference": "c62e6d0d3cc1e84f8497c4582cc1cd8ad677033b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-sqlbuilder/zipball/c62e6d0d3cc1e84f8497c4582cc1cd8ad677033b",
+                "reference": "c62e6d0d3cc1e84f8497c4582cc1cd8ad677033b",
+                "shasum": ""
+            },
+            "require-dev": {
+                "codeception/aspect-mock": "0.5.3",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\SqlBuilder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-SqlBuilder allows users to build quickly and easily complex ",
+            "keywords": [
+                "SQL Builder",
+                "puja",
+                "query builder",
+                "querybuilder",
+                "sqlbuilder"
+            ],
+            "time": "2017-11-12 14:22:53"
+        },
+        {
+            "name": "jinnguyen/puja-stdlib",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-stdlib.git",
+                "reference": "e9477c6ab93b212c2d2d873818d966ff4e65321e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-stdlib/zipball/e9477c6ab93b212c2d2d873818d966ff4e65321e",
+                "reference": "e9477c6ab93b212c2d2d873818d966ff4e65321e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Stdlib\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache License 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Stdlib provides basic functions such as File,Folder and more ",
+            "keywords": [
+                "Standard lib",
+                "file system",
+                "filesystem",
+                "folder",
+                "puja"
+            ],
+            "time": "2017-02-21 08:58:14"
+        },
+        {
+            "name": "jinnguyen/puja-template",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jinnguyen/puja-template.git",
+                "reference": "6e17b638b6f4189bc28e59feb8bbec2447383105"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jinnguyen/puja-template/zipball/6e17b638b6f4189bc28e59feb8bbec2447383105",
+                "reference": "6e17b638b6f4189bc28e59feb8bbec2447383105",
+                "shasum": ""
+            },
+            "require": {
+                "jinnguyen/puja-stdlib": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Puja\\Template\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "The MIT License (MIT)"
+            ],
+            "authors": [
+                {
+                    "name": "Jin Nguyen",
+                    "email": "w2ajax@gmail.com"
+                }
+            ],
+            "description": "Puja-Template is a lightweight, flexible and easy PHP  template engine. Inspired in django, Puja also support validate template syntax!",
+            "keywords": [
+                "django style",
+                "php template engine",
+                "puja",
+                "template engine",
+                "template engine validate syntax"
+            ],
+            "time": "2017-11-22 11:05:57"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "jinnguyen/puja-middleware": 20,
+        "jinnguyen/puja-form": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

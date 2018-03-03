@@ -35,6 +35,12 @@ Puja.Entity.Update = {
         });
 
         $('.divbox').divbox();
+        /*
+        window.onbeforeunload = function () {
+            return true;
+        };*/
+
+
         /*$('.mmt-upload-file-image').MMT({
             MediaLibraries_Enabled: true,
             MediaLibraries_GridUrl: './?module=media&ctrl=mmt&act=list&pkid=' + this.pkId + '&typeid=' + this.typeId,
@@ -168,6 +174,17 @@ Puja.Entity.Update = {
                     }, 'json');
                 },
                 onSelect: function (record) {
+                    record.checked = true;
+
+                    if ($(this).data('selectmulti') > 0) {
+                        $('#Block_' + $(this).data('inputfieldname')).datalist('appendRow', record);
+                    } else {
+                        $('#Block_' + $(this).data('inputfieldname')).datalist('clearChecked');
+                        $('#Block_' + $(this).data('inputfieldname')).datalist('insertRow', 0, record);
+                    }
+
+
+                    console.log('#Block_' + $(this).data('inputfieldname'));return;
                     var ClassName = '.' + $(this).data('inputfieldname') + '-block';
                     $(ClassName).show();
                     var html = $(ClassName + ' .sample').html().replace('{checked}', 'checked').replace(/{id}/g, record.pkid).replace('{text}', record.name);

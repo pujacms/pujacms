@@ -104,18 +104,18 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
         return $entityProcessor->getEntityByPkId($pkId);
     }
 
-    public function getList($parentId = null, $query = null, $orderBy = null, $page = 0, $limit = 0)
+    
+    public function getByQuery($query = null, $orderBy = null, $page = 0, $limit = 0)
     {
-        $data = parent::getList($parentId, $query, $orderBy, $page, $limit);
-        if (empty($data['rows'])) {
-            return $data;
-        }
+        $cond = 'fk_configure_module=' . (int) $this->idConfigureModule . ' AND ' . $this->getCondByQuery(addslashes($query));
+        $result = $this->table->findByCriteria($cond, $orderBy, $page * $limit, $limit);
 
-        foreach ($data['rows'] as $key => $row) {
+        $data = array();
+        foreach ($result as $key => $row) {
             $row['pkid'] = $row[$this->table->getPkField()];
             $row['parentId'] = $row[$this->table->getParentField()];
             $row['recordType'] = static::$recordType;
-            $data['rows'][$key] = $row;
+            $data[$key] = $row;
         }
 
         return $data;
@@ -129,6 +129,11 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
 
         return $this->table->getParentField() . '=' . (int) $parentId;
 
+    }
+
+    protected function getCondByQuery($query = null)
+    {
+        return $this->table->getCondBySearchQuery($query);
     }
 
     public function updateOrders($orderData)

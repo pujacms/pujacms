@@ -43,4 +43,16 @@ abstract class ContentAbstract extends DataGridAbstract
 
         return $this->json($list);
     }
+
+    public function dynamicOptionQueryAction()
+    {
+        $list = $this->model->getByQuery(
+            $this->getParam('q', null),
+            $this->getParam('sort', $this->listSortDefault()) . ' ' . $this->getParam('order', 'asc'),
+            max(0, $this->getParam('page') - 1),
+            $this->getParam('rows', 10)
+        );
+
+        return $this->json($list);
+    }
 }

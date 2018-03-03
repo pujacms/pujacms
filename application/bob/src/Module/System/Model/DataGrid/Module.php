@@ -20,4 +20,11 @@ class Module extends DataGridAbstract
     {
         return \Puja\Bob\DbTable\Configure\Module::getInstance()->getPkField();
     }
+
+    public function getToolbars()
+    {
+        $toolbars = parent::getToolbars();
+        $toolbars[] = array('name' => 'Clear all configures', 'icon' => 'icon-clear', 'fn' => 'create');
+        return $toolbars;
+    }
 }

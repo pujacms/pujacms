@@ -1,15 +1,15 @@
 <?php
 echo '============ Run composer: ' . PHP_EOL;
 echo '* Alice PHP' . PHP_EOL;
-echo `composer install -d application/alice`;
+echo `composer install -d application/alice/`;
 echo '* Alice Media' . PHP_EOL;
-echo `composer install -d media`;
+echo `composer install -d media/`;
 echo '* Bob PHP' . PHP_EOL;
-echo `composer install -d application/bob`;
+echo `composer install -d application/bob/`;
 echo '* Bob Media' . PHP_EOL;
-echo `composer install -d cms`;
+echo `composer install -d cms/`;
 echo '* Common libraries' . PHP_EOL;
-echo `composer install`;
+echo `composer install application/`;
 
 echo 'Composer install finish' . PHP_EOL;
 echo 'Copy alice configure template ....';

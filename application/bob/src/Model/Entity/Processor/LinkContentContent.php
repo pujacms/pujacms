@@ -31,18 +31,15 @@ class LinkContentContent extends ProcessorAbstract
 
     public function getDynamicData($options)
     {
-        $result = array('total' => 0, 'list' => array());
         $currentIds = array();
         $contentId = (int) $options['contentid'];
-
+        $currentIds = array();
         if ($contentId) {
             $content = $this->table->getByPkId($contentId);
 
-            if (empty($content) || empty($content[$options['field']])) {
-                return $result;
+            if (!empty($content) && !empty($content[$options['field']])) {
+                $currentIds = explode(',', $content[$options['field']]);
             }
-
-            $currentIds = explode(',', $content[$options['field']]);
         }
 
         switch ($options['type']) {
@@ -52,6 +49,7 @@ class LinkContentContent extends ProcessorAbstract
                 break;
 
             case 'datagrid_search':
+                $result = $this->getDynamicSearch($currentIds);
                 break;
 
             default:
@@ -65,8 +63,31 @@ class LinkContentContent extends ProcessorAbstract
 
     }
 
+    protected function getDynamicSearch($targetIds)
+    {
+        if (empty($targetIds)) {
+            return array();
+        }
+
+        $targetResult = $this->table->findByCriteria(array(
+            'fk_configure_module' => $this->cfgModule['id_configure_module'],
+            $this->table->getPkField() . '__in' => implode(',', $targetIds),
+
+        ));
+
+        foreach ($targetResult as $key => $rs) {
+            $targetResult[$key]['checked'] = true;
+            $targetResult[$key]['pkid'] = $rs[$this->table->getPkField()];
+        }
+
+        return $targetResult;
+    }
+
     protected function getDynamicList($targetIds)
     {
+        if (empty($targetIds)) {
+            return array();
+        }
 
         $mapIds = array();
         foreach ($targetIds as $id) {
