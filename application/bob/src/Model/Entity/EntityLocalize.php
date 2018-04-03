@@ -9,6 +9,7 @@ class EntityLocalize
     protected $table;
     protected $cfgModule;
     protected $recordType;
+    protected $level;
 
     protected static $instances;
 
@@ -40,6 +41,11 @@ class EntityLocalize
         ));
     }
 
+    public function setLevel($level)
+    {
+        $this->level = $level;
+    }
+
     public function getByPkIdAndIdLanguage($pkId, $idLanguage)
     {
         return $this->table->findByCriteria(array(
@@ -50,7 +56,7 @@ class EntityLocalize
 
     public function getEntityByPkId($pkId)
     {
-        $entityProcessor = Processor\EntityLocalize::getInstance($this->table, $this->cfgModule, $this->recordType);
+        $entityProcessor = Processor\EntityLocalize::getInstance($this->table, $this->cfgModule, $this->recordType, $this->level);
         return $entityProcessor->getEntityLocalizeByPkId($pkId);
     }
 

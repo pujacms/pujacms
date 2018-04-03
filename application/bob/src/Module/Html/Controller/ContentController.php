@@ -45,13 +45,13 @@ class ContentController extends \Puja\Bob\Controller\DataGrid\Entity\DataGridAbs
         );
     }*/
 
-    protected function getUpdateData($pkId, $parentId)
+    protected function getUpdateData($pkId, $parentId, $level)
     {
         $detail = $this->model->getByPkId($pkId);
         if (empty($detail)) {
             $this->model->addRecordByPkId($pkId);
         }
-        $data = parent::getUpdateData($pkId, $parentId);
+        $data = parent::getUpdateData($pkId, $parentId, $level);
         $data['BackUrl'] = './';
         return $data;
     }

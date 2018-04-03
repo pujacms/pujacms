@@ -26,7 +26,9 @@ class EntityLocalize extends Entity
             $language['fields'] = $this->prepareEntity(
                 empty($entities[$language['id_configure_language']]) ? null : $entities[$language['id_configure_language']],
                 $this->cfgModule['cfg_data'][$this->recordType]['ln_fields'],
-                Constant::LN_ENTITY . '[' . $language['id_configure_language'] . ']'
+                Constant::LN_ENTITY . '[' . $language['id_configure_language'] . ']',
+                array(),
+                $this->level
             );
 
             $languages[$key] = $language;

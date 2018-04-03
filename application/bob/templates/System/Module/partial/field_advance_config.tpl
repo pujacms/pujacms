@@ -1,6 +1,10 @@
 <!-- Config General -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-form">
     <tr>
+        <td class="first">Available levels</td>
+        <td><input class="textbox easyui-input" name="{{ InputFieldName }}[{{ field.Field }}][setting][available_levels]" value="{{ field.setting.available_levels|default:"-1" }}"  /></td>
+    </tr>
+    <tr>
         <td class="first">Validator</td>
         <td><input class="textbox easyui-input" name="{{ InputFieldName }}[{{ field.Field }}][setting][validator]" value="{{ field.setting.validator }}"  /></td>
     </tr>

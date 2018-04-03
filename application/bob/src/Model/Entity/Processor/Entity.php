@@ -79,13 +79,16 @@ class Entity extends ProcessorAbstract
             'fields' => $this->prepareEntity(
                 $entityData,
                 $this->cfgModule['cfg_data'][$this->recordType]['main_fields'],
-                Constant::MAIN_ENTITY
-            )
+                Constant::MAIN_ENTITY,
+                array(),
+                $this->level
+            ),
+            'parent' => empty($entityData[$this->table->getParentField()]) ? 0 : $entityData[$this->table->getParentField()],
         );
 
     }
 
-    protected function prepareEntity($entityData, $entityCfg, $inputFieldName, $dynamicOptions = array())
+    protected function prepareEntity($entityData, $entityCfg, $inputFieldName, $dynamicOptions = array(), $level = 0)
     {
         if (empty($entityData)) {
             $entityData = array();
@@ -100,7 +103,7 @@ class Entity extends ProcessorAbstract
         $result = array();
         $originalIndex = 0;
         foreach ($entityCfg as $field => $cfg) {
-            if (empty($cfg['checked'])) {
+            if (!$this->checkFieldAvailable($cfg, $level)) {
                 continue;
             }
             $cfg['originalIndex'] = $originalIndex++;
@@ -116,6 +119,23 @@ class Entity extends ProcessorAbstract
 
         uasort($result, array($this, 'reOrderEntitySetting'));
         return $result;
+    }
+
+    protected function checkFieldAvailable($fieldCfg, $level)
+    {
+        if (empty($fieldCfg['checked'])) {
+            return false;
+        }
+
+
+        if ($fieldCfg['setting']['available_levels'] != '-1') {
+            $availableLevels = explode(',', $fieldCfg['setting']['available_levels']);
+            if (!in_array($level, $availableLevels)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 

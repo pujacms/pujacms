@@ -46,8 +46,10 @@ class FormTransfer
                             continue;
                         }
 
-                        $value[] = $mediaData[$mediaId];
+                        $value[$mediaId] = $mediaData[$mediaId];
                     }
+
+                    $value = array_values($value);
                 }
                 
                 break;

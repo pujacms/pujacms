@@ -17,6 +17,7 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
     protected $idConfigureLanguage;
     protected $cfgModule;
     protected static $recordType;
+    protected $level;
 
 
     protected function getTableLocalize(){}
@@ -50,11 +51,17 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
         parent::__construct();
     }
 
+    public function setLevel($level)
+    {
+        $this->level = $level;
+    }
+    
     /**
      * @return  EntityLocalize
      */
     public function getLocalizeModel()
     {
+        $this->localizeModel->setLevel($this->level);
         return $this->localizeModel;
     }
 
@@ -100,7 +107,7 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
 
     public function getEntityByPkId($pkId)
     {
-        $entityProcessor = Processor\Entity::getInstance($this->table, $this->cfgModule, static::$recordType);
+        $entityProcessor = Processor\Entity::getInstance($this->table, $this->cfgModule, static::$recordType, $this->level);
         return $entityProcessor->getEntityByPkId($pkId);
     }
 

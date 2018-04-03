@@ -54,9 +54,13 @@ abstract class DataGridAbstract extends \Puja\Bob\Controller\DataGrid\DataGridAb
     public function getParents()
     {
         if (null == self::$parents) {
+            $categoryModel = $this->getCategoryModel();
             if ($this->parentId) {
-                $categoryModel = $this->getCategoryModel();
+
                 self::$parents = $categoryModel->getParentsByPkId($this->parentId);
+            } elseif ('category' == $this->controllerId) {
+                // get parent in case update category
+                self::$parents = $categoryModel->getParentsByPkId($this->getParam('pkid'));
             }
         }
 
@@ -102,18 +106,31 @@ abstract class DataGridAbstract extends \Puja\Bob\Controller\DataGrid\DataGridAb
             'moduleType' => $cfgModule['fk_module_type'],
             'typeId' => $cfgModule['id_configure_module'],
             'recordType' => $this->model->getRecordType(),
-            'parentId' => $this->getParam('parentid', 0),
+            //'parentId' => $this->getParam('parentid', 0),
             'pkId' => $this->getParam('pkid', 0),
         ));
 
+        $parents = self::getParents();
+        if ($this->getParam('pkid', null) ) {
+            //edit
+        }
+        
+        
+        $level = count($parents);
+        if (!$this->getParam('pkid', null)) {
+            $level = $level + 1;
+        }
+
+
         $this->render(
             'Entity/Update.tpl',
-            $this->getUpdateData($pkId, $parentId)
+            $this->getUpdateData($pkId, $parentId, $level)
         );
     }
 
     protected function setUpdateData($pkId, $parentId)
     {
+
         $entityId =  $this->model->setEntity(
             $pkId,
             $parentId,
@@ -130,13 +147,16 @@ abstract class DataGridAbstract extends \Puja\Bob\Controller\DataGrid\DataGridAb
         return $entityId;
     }
 
-    protected function getUpdateData($pkId, $parentId)
+    protected function getUpdateData($pkId, $parentId, $level)
     {
+        $this->model->setLevel($level);
         $data = array(
             'MainEntity' => $this->model->getEntityByPkId($pkId),
             'IsDynamicOption' => $this->isDynamicOption,
             'BackUrl' => './?module=' . $this->getModuleId() . '&parentid=' . $parentId . '&typeid=' . $this->idConfigureModule,
         );
+
+        $this->addJsonStore(array('parentId' => $data['MainEntity']['parent']));
         
         if ($this->configureLanguageId) {
             $data['LnEntities'] = $this->model->getLocalizeModel()->getEntityByPkId($pkId);
