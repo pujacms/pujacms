@@ -149,4 +149,13 @@ abstract class EntityAbstract extends \Puja\Bob\Model\AbstractLayer\BaseAbstract
             $this->table->updateByPkId(array('order_id' => $orderId), $pkId);
         }
     }
+
+    public function updateOrderBeforeDelete($content)
+    {
+        $this->table->updateByCriteria(
+            array('order_id__exact' => 'order_id - 1'),
+            array('fk_configure_module' => $content['fk_configure_module']),
+            array('order_id__gt' => $content['order_id'], $this->table->getParentField() => $content[$this->table->getParentField()])
+        );
+    }
 }

@@ -88,12 +88,12 @@ abstract class DataGridAbstract extends \Puja\Bob\Middleware\Controller
     
     public function deleteAction()
     {
-        $this->processDelete();
+        $this->processDelete($this->getParam('pkid'));
     }
 
-    protected function processDelete()
+    protected function processDelete($pkId)
     {
-        $this->model->deleteByPkId($this->getParam('pkid'));
+        $this->model->deleteByPkId($pkId);
     }
 
     public function toggleStatusAction()
